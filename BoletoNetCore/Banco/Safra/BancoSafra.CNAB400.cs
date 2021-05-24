@@ -72,6 +72,13 @@ namespace BoletoNetCore
 
                 // Registro Retorno
                 boleto.RegistroArquivoRetorno = boleto.RegistroArquivoRetorno + registro + Environment.NewLine;
+
+                // Pagador
+                boleto.Pagador = new Pagador
+                {
+                    CPFCNPJ = registro.Substring(326, 14),
+                    Nome = registro.Substring(340, 30)
+                };
             }
             catch (Exception ex)
             {
